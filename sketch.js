@@ -1,8 +1,10 @@
 const Engine = Matter.Engine;
 const World= Matter.World;
 const Bodies = Matter.Bodies;
+const Constraint = Matter.Constraint;
 
 var box1, box2, box3, box4, box5, box6, box7, box8, box9, box0;
+var sling, holder, ball;
 var ground;
 function setup() {
   var canvas = createCanvas(1200,400);
@@ -39,13 +41,22 @@ function setup() {
   box0 = new Box(927, 280);
   World.add(world, box0);
 
+  holder = Bodies.rectangle(1000, 200, 5, 5);
+
+  ball = Bodies.rectangle(1000, 200, 15, 15, {density: 0.004});
+
   ground = new Ground(600,height,1200,20);
   World.add(world, ground);
+
+  sling = new Sling(holder.body, {x:1000, y: 200});
 }
 
 function draw() {
   background("yellow");  
   Engine.update(engine);
+
+  fill("black");
+  rect(ball.position.x, ball.position.y, ball.width, ball.height);
 
   box1.display();
   box2.display();
@@ -57,6 +68,8 @@ function draw() {
   box8.display();
   box9.display();
   box0.display();
+
+  sling.display();
 
   ground.display();
 
