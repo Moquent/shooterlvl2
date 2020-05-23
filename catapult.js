@@ -21,7 +21,7 @@ class Sling{
     display(){
         if(this.sling.bodyA){
             var pointA = this.sling.bodyA.position;
-            var pointB = this.pointB;
+            var pointB = this.sling.pointB;
         
             push();
             
