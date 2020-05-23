@@ -51,7 +51,6 @@ function setup() {
   World.add(world, ground);
 
   sling = new Sling(ball.body, {x:200, y:100});
-  World.add(world, sling);
 }
 
 function draw() {
