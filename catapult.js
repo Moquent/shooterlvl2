@@ -19,11 +19,17 @@ class Sling{
     }
 
     display(){
-        image(this.sling1,200,20);
-        image(this.sling2,170,20);
         if(this.sling.bodyA){
             var pointA = this.sling.bodyA.position;
-            var pointB = this.sling.pointB;
+            var pointB = this.pointB;
+        
+            push();
+            
+            stroke(48,22,8);
+            strokeWeight(7);
+            line(pointA.x, pointA.y, pointB.x, pointB.y);
+            
+            pop();
         }
     }
 }
