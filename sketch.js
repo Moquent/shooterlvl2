@@ -50,7 +50,7 @@ function setup() {
   ground = new Ground(600,height,1200,20);
   World.add(world, ground);
 
-  sling = new Sling(ball.body, holder.body);
+  sling = new Sling(ball.body, {x:200, y:100});
   World.add(world, sling);
 }
 
