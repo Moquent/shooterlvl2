@@ -3,7 +3,7 @@ class Sling{
         var options = {
             bodyA: bodyA,
             pointB: pointB,
-            stiffness: 0.04,
+            stiffness: 0.05,
             length: 10
         }
         this.pointB = pointB
@@ -25,11 +25,12 @@ class Sling{
         
             push();
             
-            stroke(48,22,8);
+            stroke("white");
             strokeWeight(7);
             line(pointA.x, pointA.y, pointB.x, pointB.y);
             
             pop();
         }
+        
     }
 }

@@ -1,12 +1,16 @@
 class Ball{
     constructor(x, y){
         var options = {
-            density: 0.004
+            'restitution':0.8,
+            'friction':1.0,
+            'density':1.0
         }
     
         this.body = Bodies.rectangle(200, 200, 5, 5, options);
-        this.width = 15;
-        this.height = 15;
+        this.width = 5;
+        this.height = 5;
+
+        World.add(world, this.body);
     }
 
     display(){

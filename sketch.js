@@ -12,40 +12,17 @@ function setup() {
   world = engine.world;
 
   box1 = new Box(900, 370);
-  World.add(world, box1);
-
   box2 = new Box(919, 370);
-  World.add(world, box2);
-
   box3 = new Box(938, 370);
-  World.add(world, box3);
-
   box4 = new Box(957, 370);
-  World.add(world, box4);
-
   box5 = new Box(909, 340);
-  World.add(world, box5);
-  
   box6 = new Box(928, 340);
-  World.add(world, box6);
-
   box7 = new Box(947, 340);
-  World.add(world, box7);
-
   box8 = new Box(918, 310);
-  World.add(world, box8);
-
   box9 = new Box(937, 310);
-  World.add(world, box9);
-
   box0 = new Box(927, 280);
-  World.add(world, box0);
 
-  holder = Bodies.rectangle(1000, 200, 5, 5);
-  World.add(world, holder);
-
-  ball = new Ball();
-  World.add(world, ball);
+  ball = new Ball({isStatic: false});
 
   ground = new Ground(600,height,1200,20);
   World.add(world, ground);
@@ -72,14 +49,19 @@ function draw() {
 
   sling.display();
 
+  fill("white");
+  rectMode(CENTER);
+  rect(200, 100, 20, 20);
+
   ground.display();
 
   drawSprites();
 }
 
-function pull(){
-  if(mousePressedOver(ball.body)){
-    ball.x = mouse.x;
-    ball.y =m
-  }
+function mouseDragged(){
+  Matter.Body.setPosition(ball.body, {x: mouseX , y: mouseY});
+}
+
+function mouseReleased(){
+  sling.fly();
 }
