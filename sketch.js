@@ -44,7 +44,7 @@ function setup() {
   holder = Bodies.rectangle(1000, 200, 5, 5);
   World.add(world, holder);
 
-  ball = Bodies.rectangle(1000, 200, 15, 15, {density: 0.004});
+  ball = new Ball();
   World.add(world, ball);
 
   ground = new Ground(600,height,1200,20);
@@ -57,9 +57,6 @@ function draw() {
   background("yellow");  
   Engine.update(engine);
 
-  fill("black");
-  rect(ball.position.x, ball.position.y, ball.width, ball.height);
-
   box1.display();
   box2.display();
   box3.display();
@@ -71,9 +68,18 @@ function draw() {
   box9.display();
   box0.display();
 
+  ball.display();
+
   sling.display();
 
   ground.display();
 
   drawSprites();
+}
+
+function pull(){
+  if(mousePressedOver(ball.body)){
+    ball.x = mouse.x;
+    ball.y =m
+  }
 }
